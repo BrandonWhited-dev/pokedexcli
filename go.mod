@@ -1,3 +1,3 @@
-module github.com/brandonwhited-dex/pokedexcli
+module github.com/brandonwhited-dev/pokedexcli
 
 go 1.24.4
