@@ -8,30 +8,33 @@ type cliCommand struct {
 }
 
 // map of commands
-var commands map[string]cliCommand = map[string]cliCommand{
-	"exit": {
-		name:        "exit",
-		description: "Exit the Pokedex",
-		callback:    commandExit,
-	},
-	"help": {
-		name:        "help",
-		description: "Displays a help message",
-		callback:    commandHelp,
-	},
-	"map": {
-		name:        "map",
-		description: "Displays Next locations",
-		callback:    commandMap,
-	},
-	"mapb": {
-		name:        "mapb",
-		description: "Displays Previous locations",
-		callback:    commandMapb,
-	},
-	"explore": {
-		name:        "explore",
-		description: "Displays pokemon in an area",
-		callback:    commandExplore,
-	},
+func getCommands() map[string]cliCommand {
+	commands := map[string]cliCommand{
+		"exit": {
+			name:        "exit",
+			description: "Exit the Pokedex",
+			callback:    commandExit,
+		},
+		"help": {
+			name:        "help",
+			description: "Displays a help message",
+			callback:    commandHelp,
+		},
+		"map": {
+			name:        "map",
+			description: "Displays Next locations",
+			callback:    commandMap,
+		},
+		"mapb": {
+			name:        "mapb",
+			description: "Displays Previous locations",
+			callback:    commandMapb,
+		},
+		"explore": {
+			name:        "explore [location-name]",
+			description: "Displays pokemon in an area",
+			callback:    commandExplore,
+		},
+	}
+	return commands
 }

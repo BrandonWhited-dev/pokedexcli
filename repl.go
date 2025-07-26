@@ -17,6 +17,7 @@ func replStart(cfg *config) {
 		userCmd := cleanInput(scanner.Text())
 		isCmd := isCommand(userCmd[0])
 		if isCmd {
+			commands := getCommands()
 			err := commands[userCmd[0]].callback(cfg, userCmd)
 			if err != nil {
 				fmt.Println("Error:", err)
@@ -35,6 +36,7 @@ func cleanInput(text string) []string {
 // checks if the string is a command
 func isCommand(cmd string) bool {
 	isCmd := false
+	commands := getCommands()
 	for _, command := range commands {
 		if cmd == command.name {
 			isCmd = true
