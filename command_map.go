@@ -41,7 +41,7 @@ func pokemapCall(url string) ([]byte, error) {
 	return body, nil
 }
 
-func commandMap(cfg *config) error {
+func commandMap(cfg *config, args []string) error {
 	url := cfg.Next
 	data := LocationAreaResponse{}
 	if url == "" {
@@ -82,7 +82,7 @@ func commandMap(cfg *config) error {
 	return nil
 }
 
-func commandMapb(cfg *config) error {
+func commandMapb(cfg *config, args []string) error {
 	url := cfg.Previous
 	data := LocationAreaResponse{}
 	if url == "" {
