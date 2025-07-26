@@ -1,0 +1,33 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Output of go build
+/build/
+/bin/
+/dist/
+
+# Go workspace file (deprecated but sometimes present)
+go.work
+go.work.sum
+
+# Test binary files
+*.test
+
+# Dependency directories (if you vendor them)
+vendor/
+
+# Editor/IDE files (optional but common)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
