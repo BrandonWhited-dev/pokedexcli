@@ -10,6 +10,8 @@ import (
 func replStart(cfg *config) {
 	scanner := bufio.NewScanner(os.Stdin)
 	for {
+		fmt.Println("Welcome to your very own Pokedex!")
+		fmt.Println("If you need help with commands type help.")
 		fmt.Print("Pokedex > ")
 		scanner.Scan()
 		userCmd := cleanInput(scanner.Text())
