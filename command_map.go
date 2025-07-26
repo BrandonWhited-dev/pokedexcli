@@ -4,8 +4,6 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
-	"io"
-	"net/http"
 )
 
 type LocationAreaResponse struct {
@@ -14,31 +12,6 @@ type LocationAreaResponse struct {
 	Results  []struct {
 		Name string `json:"name"`
 	} `json:"results"`
-}
-
-func pokemapCall(url string) ([]byte, error) {
-
-	// make the get request
-	req, err := http.NewRequest("GET", url, nil)
-	if err != nil {
-		return nil, err
-	}
-
-	//get the response
-	client := &http.Client{}
-	res, err := client.Do(req)
-	if err != nil {
-		return nil, err
-	}
-	defer res.Body.Close()
-
-	//read data
-	body, err := io.ReadAll(res.Body)
-	if err != nil {
-		return nil, err
-	}
-
-	return body, nil
 }
 
 func commandMap(cfg *config, args []string) error {
@@ -56,7 +29,7 @@ func commandMap(cfg *config, args []string) error {
 			return err
 		}
 	} else {
-		body, err := pokemapCall(url)
+		body, err := pokeAPICall(url)
 		if err != nil {
 			return err
 		}
@@ -96,7 +69,7 @@ func commandMapb(cfg *config, args []string) error {
 			return err
 		}
 	} else {
-		body, err := pokemapCall(url)
+		body, err := pokeAPICall(url)
 		if err != nil {
 			return err
 		}
