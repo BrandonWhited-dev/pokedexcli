@@ -45,3 +45,38 @@ type Type struct {
 	Url  string `json:"url"`
 }
 
+func commandCatch(cfg *config, args []string) error {
+	if len(args) < 2 || args[1] == "" {
+		return errors.New("Please enter a pokemons name. ex: catch Pikachu")
+	}
+	pokemonName := args[1]
+	url := "https://pokeapi.co/api/v2/pokemon/" + pokemonName
+
+	cacheData, exists := cfg.Cache.Get(url)
+
+	data := PokemonInfo{}
+
+	if exists {
+		//decode cache data
+		if err := json.Unmarshal(cacheData, &data); err != nil {
+			return err
+		}
+	} else {
+		body, err := pokeAPICall(url)
+		if err != nil {
+			return err
+		}
+		//cache data
+		cfg.Cache.Add(url, body)
+
+		//decode body
+		if err := json.Unmarshal(body, &data); err != nil {
+			return errors.New("Pokemon not found. Please enter a valid name.")
+		}
+	}
+
+	catch(data.Name, data.Exp)
+
+	return nil
+}
+
