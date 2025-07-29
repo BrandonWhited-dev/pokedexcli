@@ -45,6 +45,11 @@ func getCommands() map[string]cliCommand {
 			description: "Displays all pokemon you have caught.",
 			callback:    commandStorage,
 		},
+		"delete": {
+			name:        "delete",
+			description: "Deletes save data",
+			callback:    commandDelete,
+		},
 	}
 	return commands
 }

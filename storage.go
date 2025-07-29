@@ -44,3 +44,18 @@ func WriteData(cfg *config) {
 		fmt.Println(err)
 	}
 }
+
+func DeleteData(cfg *config) error {
+	home, err := os.UserHomeDir()
+	if err != nil {
+		return err
+	}
+	path := filepath.Join(home, "Documents", "pokedex.json")
+	fmt.Println("Deleting save data: " + path)
+	cfg.Storage = make(map[string]PokemonInfo)
+	err = os.Remove(path)
+	if err != nil {
+		return err
+	}
+	return nil
+}
