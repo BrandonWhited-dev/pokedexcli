@@ -75,13 +75,15 @@ func commandCatch(cfg *config, args []string) error {
 		}
 	}
 
-	catch(data.Name, data.Exp)
+	if catch(data.Name, data.Exp) {
+		cfg.Storage[data.Name] = data
+	}
 
 	return nil
 }
 
 // logic if pokemon is caught
-func catch(name string, baseExp int) {
+func catch(name string, baseExp int) bool {
 	pokeballChance := 75
 	//Throwing pokeball message
 	fmt.Printf("Throwing a pokeball at %s", name)
@@ -92,9 +94,10 @@ func catch(name string, baseExp int) {
 	fmt.Println("")
 
 	if pokeballChance > rand.Intn(baseExp) {
-		//TODO: add to pokedex
 		fmt.Printf("You caught a %s!\n", name)
+		return true
 	} else {
 		fmt.Printf("%s escaped.\n", name)
+		return false
 	}
 }
