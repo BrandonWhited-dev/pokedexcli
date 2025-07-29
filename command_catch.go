@@ -52,6 +52,9 @@ func commandCatch(cfg *config, args []string) error {
 	pokemonName := args[1]
 	url := "https://pokeapi.co/api/v2/pokemon/" + pokemonName
 
+	if _, exists := cfg.Storage[pokemonName]; exists {
+		return errors.New("You have already caught " + pokemonName)
+	}
 	cacheData, exists := cfg.Cache.Get(url)
 
 	data := PokemonInfo{}
