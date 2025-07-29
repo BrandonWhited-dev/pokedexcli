@@ -1,12 +1,19 @@
 # Pokedex CLI 
-This REPL application serves as a pokedex based off the *pokeapi.co/* api.
+This command-line REPL application serves as a pokedex based off the *pokeapi.co/* api.
 
 ## Installation
-coming soon...
+[Windows Download v1.0](https://github.com/brandonwhited-dev/pokedexcli/releases/tag/v1.0)
 
 ## Commands
-- Help: Displays all commands with a short description
-- Exit: Exits the application
-- map: Displays 20 locations that you can visit
-- mapb: Displays the previous 20 locations that you visited
-- explore [location name]: displays the pokemon that are native to that region
+
+| Command | Description |
+|---------|-------------|
+| `help` | Displays a help message |
+| `exit` | Exit the Pokedex |
+| `map` | Displays next locations |
+| `mapb` | Displays previous locations |
+| `explore <location>` | Type a location name after explore. Displays pokemon in an area |
+| `inspect <pokemon>` | Enter a pokemon's name after the command. Displays data about pokemon |
+| `catch <pokemon>` | Enter the pokemon's name after the command. Allows you to attempt to catch a pokemon |
+| `storage` | Displays all pokemon you have caught |
+| `delete` | Deletes save data |
