@@ -10,6 +10,7 @@ func main() {
 		Next:     "https://pokeapi.co/api/v2/location-area/",
 		Previous: "",
 		Cache:    pokecache.NewCache(10 * time.Second),
+		Storage:  make(map[string]PokemonInfo),
 	}
 	replStart(configuration)
 }
