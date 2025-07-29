@@ -6,4 +6,5 @@ type config struct {
 	Next     string
 	Previous string
 	Cache    *pokecache.Cache
+	Storage  map[string]PokemonInfo
 }
