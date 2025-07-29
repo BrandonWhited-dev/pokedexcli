@@ -50,6 +50,11 @@ func getCommands() map[string]cliCommand {
 			description: "Deletes save data",
 			callback:    commandDelete,
 		},
+		"inspect": {
+			name:        "inspect",
+			description: "Enter a pokemons name after the command. Displays data about pokemon.",
+			callback:    commandInspect,
+		},
 	}
 	return commands
 }
