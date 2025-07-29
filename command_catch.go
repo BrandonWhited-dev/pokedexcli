@@ -9,29 +9,21 @@ import (
 )
 
 type PokemonInfo struct {
-	Id        int         `json:"id"`
-	Name      string      `json:"name"`
-	Exp       int         `json:"base_experience"`
-	Weight    int         `json:"weight"`
-	Abilities []Abilities `json:"abilities"`
-	Types     []Types     `json:"types"`
-	Moves     []Moves     `json:"moves"`
+	Id     int     `json:"id"`
+	Name   string  `json:"name"`
+	Exp    int     `json:"base_experience"`
+	Height int     `json:"height"`
+	Weight int     `json:"weight"`
+	Stats  []Stats `json:"stats"`
+	Types  []Types `json:"types"`
 }
 
-type Moves struct {
-	Move Move `json:"move"`
+type Stats struct {
+	BaseStat int  `json:"base_stat"`
+	Stat     Stat `json:"stat"`
 }
 
-type Move struct {
-	Name string `json:"name"`
-	Url  string `json:"url"`
-}
-
-type Abilities struct {
-	Ability Ability `json:"ability"`
-}
-
-type Ability struct {
+type Stat struct {
 	Name string `json:"name"`
 	Url  string `json:"url"`
 }
