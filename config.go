@@ -1,6 +1,6 @@
 package main
 
-import pokecache "github.com/brandonwhited-dev/pokedexcli/internal/pokecache"
+import "github.com/brandonwhited-dev/pokedexcli/internal/pokecache"
 
 type config struct {
 	Next     string
